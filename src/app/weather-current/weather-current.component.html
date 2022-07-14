@@ -1,0 +1,36 @@
+<div class="weather__current">
+  <div class="weather__current__city">{{weatherCurrent?.name}}</div>
+  <div class="weather__current__desc">{{weatherCurrent!.weather[0]!.description}}</div>
+  <div class="weather__current__icon">
+    <img src="http://openweathermap.org/img/wn/{{weatherCurrent!.weather[0]!.icon}}@2x.png" alt=>
+  </div>
+  <div class="weather__current__temp">{{weatherCurrent?.main?.temp | number: '1.0-0'}}&deg;C</div>
+  <div class="weather__current__geo">
+    <p>
+      latitude: <span id ='lat'>{{weatherCurrent?.coord?.lat}}&deg;</span><br>
+      longitude: <span id = 'long'>{{weatherCurrent?.coord?.lon}}&deg;</span>
+    </p>
+  </div>
+</div>
+<div class="weather__details">
+  <ul class="weather__details__row">
+    <li class="weather__details__item">
+      <div class="weather__details__name">feels like:</div>
+      <div class="weather__details__value feels-like">{{weatherCurrent?.main?.feels_like | number: '1.0-0'}}&deg;C</div>
+    </li>
+    <li class="weather__details__item">
+      <div class="weather__details__name">pressure:</div>
+      <div class="weather__details__value pressure">{{weatherCurrent?.main?.pressure | number: '1.0-0'}} m.m</div>
+    </li>
+  </ul>
+  <ul class="weather__details__row">
+    <li class="weather__details__item">
+      <div class="weather__details__name">humidity:</div>
+      <div class="weather__details__value humidity">{{weatherCurrent?.main?.humidity}} %</div>
+    </li>
+    <li class="weather__details__item">
+      <div class="weather__details__name">wind:</div>
+      <div class="weather__details__value wind">{{weatherCurrent?.wind?.speed}} m/s</div>
+    </li>
+  </ul>
+</div>

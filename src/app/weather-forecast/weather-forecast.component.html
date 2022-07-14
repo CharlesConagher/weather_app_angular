@@ -1,0 +1,11 @@
+<ul class="forecast" *ngFor="let day of WeatherForecast?.daily">
+  <li class="forecast__item">
+    <div class="forecast__time">{{day.dt * 1000 | date}}</div>
+    <div class="forecast__icon">
+      <img src="http://openweathermap.org/img/wn/{{day!.weather[0]!.icon}}@2x.png" alt=>
+    </div>
+    <div class="forecast__desc">{{day.weather[0].description}}</div>
+    <div class="forecast__temp">{{day.temp.day | number: '1.0-0'}}&deg;C</div>
+  </li>
+</ul>
+

@@ -1,0 +1,36 @@
+.weather
+  &__current
+    flex-direction: column
+    align-items: center
+    text-align: center
+    margin: 1em 0
+    &__city
+      font-size: 3em
+    &__desc
+      font-size: 1.5em
+    &__temp
+      font-size: 4em
+  &__details
+    margin: 1em 0
+    &__row
+      display: flex
+      justify-content: center
+      margin: 1em 0
+      padding: 0
+      @media( max-width: 425px)
+        flex-direction: column
+    &__item
+      flex: 1
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: row
+      border: 1px solid #000
+      border-radius: 10px
+      margin: 0 20px
+      @media( max-width: 425px)
+        margin: 20px 0
+    &__name
+      margin-right: 20px
+    &__value
+      font-size: 1.5em

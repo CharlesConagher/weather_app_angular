@@ -1,0 +1,30 @@
+.forecast
+  flex-direction: column
+  justify-content: space-between
+  padding: 0
+  @media ( max-width: 425px)
+    flex-direction: column
+  &__item
+    text-align: center
+    border: 1px solid #000
+    border-radius: 10px
+    margin: 0.5em
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    height: 80px
+  &__desc
+    display: flex
+    margin: 1em
+    align-items: center
+  &__time
+    display: flex
+    margin: 1em
+    align-items: center
+  &__temp
+    display: flex
+    margin: 1em
+    font-size: 1.5em
+    align-items: center
+  &__icon
+    transform: scale(0.7)
