@@ -1,6 +1,10 @@
 # WeatherAppAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
+This is a weather forecast app. It is a copy of my early project WeatherAppExpressJS now recreated fully on Angular framework.
+
+## Functionality
+
+You can get current weather readings and forecast on 5 days ahead by your geolocation from browser or by city search.
 
 ## Development server
 
