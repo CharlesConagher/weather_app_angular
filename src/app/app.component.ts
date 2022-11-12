@@ -17,14 +17,14 @@ export class AppComponent {
   weatherDailyData?: WeatherDailyData
 
   getGeoloc(){
-    if('geolocation' in navigator){
+    try{
       navigator.geolocation.getCurrentPosition( async position =>{
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
         this.downloadWeatherCurrent(lat, lon)
         this.downloadWeatherDaily(lat, lon)
       })
-    } else {
+    } catch (err) {
       console.log('geolocation is not available')
     }
   }
@@ -36,27 +36,20 @@ export class AppComponent {
           this.downloadWeatherCurrent(response[0].lat, response[0].lon)
           this.downloadWeatherDaily(response[0].lat, response[0].lon)
         },
-        error: (err) => {
-          alert(
-            `We cannot process your request!
-             Possible reasons:
-                *You misspelled a city name;
-                *City with this name does not exist;
-                *You didn't write the name of the city;`
-          )
-        }
+        error: (err) => console.log(err)
       })
   }
 
   downloadWeatherCurrent(lat: number, lon: number) {
     this.weatherService.getWeatherCurrent(lat, lon)
       .subscribe({
-        next: (response) => {
+        next: response => {
           response.main.temp -= 273
           response.main.feels_like -=273
           response.main.pressure /= 1.33
           this.weatherCurrentData = response
-        }
+        },
+        error: (err) => console.log(err)
       })
   }
 
@@ -68,7 +61,8 @@ export class AppComponent {
             day.temp.day -=273
           }
           this.weatherDailyData = response
-        }
+        },
+        error: (err) => console.log(err)
       })
   }
 }

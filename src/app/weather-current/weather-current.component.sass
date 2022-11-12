@@ -1,3 +1,11 @@
+//Breakpoints
+$PC: 1441px
+$Notebook: 1024px
+$Tablet: 768px
+$MobileBig: 425px
+$MobileMedium: 375px
+$MobileSmall: 320px
+
 .weather
   &__current
     flex-direction: column
@@ -6,19 +14,25 @@
     margin: 1em 0
     &__city
       font-size: 3em
+      @media (max-width: $MobileBig)
+        font-size: 2.5em
     &__desc
       font-size: 1.5em
     &__temp
       font-size: 4em
   &__details
     margin: 1em 0
+    display: flex
+    flex-direction: column
+    align-items: center
     &__row
       display: flex
       justify-content: center
       margin: 1em 0
       padding: 0
-      @media( max-width: 425px)
+      @media( max-width: $MobileBig)
         flex-direction: column
+        margin: 0
     &__item
       flex: 1
       display: flex
@@ -27,10 +41,17 @@
       flex-direction: row
       border: 1px solid #000
       border-radius: 10px
-      margin: 0 20px
-      @media( max-width: 425px)
+      margin: 0 10px
+      width: 200px
+      @media( max-width: $MobileBig)
         margin: 20px 0
+        width: 300px
     &__name
-      margin-right: 20px
+      margin-right: 0.5em
+      @media( max-width: $MobileBig)
+        font-size: 1.5em
     &__value
-      font-size: 1.5em
+      font-size: 1em
+      font-weight: bold
+      @media( max-width: $MobileBig)
+        font-size: 1.5em

@@ -1,6 +1,14 @@
 $padding: 1em
 $icon-size: 50px
 
+//Breakpoints
+$PC: 1441px
+$Notebook: 1024px
+$Tablet: 768px
+$MobileBig: 425px
+$MobileMedium: 375px
+$MobileSmall: 320px
+
 body
   display: flex
   flex-direction: column
@@ -10,8 +18,13 @@ body
   height: 100vh
   background-image: url('../assets/background.jpg')
   background-size: cover
+  @media(max-width: $Notebook)
+    height: 105vh
+  @media(max-width: $Tablet)
+    height: 180vh
 
-button
+.input__button,
+.geolocation__button
   height: 30px
   width: 130px
   align-self: center
@@ -31,10 +44,17 @@ button
     border-radius: 20px
     display: flex
     flex-direction: row
+    @media(max-width: $Tablet)
+      flex-direction: column
+    @media(max-width: $MobileBig)
+      padding: 0
   &__item
     display: flex
     flex-direction: column
     justify-content: center
+    margin: 0 0.5em
+    @media (max-width: $MobileBig)
+      margin: 0
   &__input
     display: flex
     justify-content: center
@@ -47,7 +67,7 @@ button
       justify-content: center
     &__city
       display: block
-      width: 500px
+      width: 400px
       height: 40px
       align-self: center
       text-align: center

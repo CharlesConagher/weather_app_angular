@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import { environment } from "../../environments/environment";
 import { Observable } from "rxjs";
 import { WeatherCurrentData } from "../models/weather_current.model";
@@ -15,6 +15,7 @@ export class WeatherService {
 
   getWeatherCurrent(lat: number, lon: number): Observable<WeatherCurrentData> {
     return this.http.get<WeatherCurrentData>(environment.OpenWeatherCurrentURL, {
+      headers: new HttpHeaders(),
       params: new HttpParams()
         .set('lat', lat)
         .set('lon', lon)
